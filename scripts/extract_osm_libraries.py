@@ -21,18 +21,23 @@ def extract_osm_libraries(place: str = "Berlin, Germany") -> gpd.GeoDataFrame:
     Returns:
         GeoDataFrame: Raw OSM libraries data
     """
+    
+    # Define filter for OSM to get only libraries
     tags = {"amenity": "library"}
+    
+    # Query OSM for features matching tags in the target place
     gdf = ox.features_from_place(place, tags)
-
-    # Ensure WGS84
+    
+    # Convert coordinate system to standard WGS84 (lat/lon)
     gdf = gdf.to_crs(epsg=4326)
-
-    # Reset index to expose OSM IDs
+    
+    # Reset index to expose OSM IDs as columns
     gdf = gdf.reset_index()
-
+    
     return gdf
 
-
 if __name__ == "__main__":
+    # Extract library features in Berlin
     libraries_gdf = extract_osm_libraries()
+    # Print how many records were found
     print(f"Extracted {len(libraries_gdf)} library records from OSM")
