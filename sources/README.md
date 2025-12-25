@@ -4,7 +4,7 @@
 - **OpenStreetMap (OSM)**
   - Accessed via OSMnx (Overpass API)
   - Filter: `amenity=library`
-  - License: ODbL (© OpenStreetMap contributors)
+  - License: ODbL (© [Open Data Commons Open Database License (ODbL) v1.0](https://opendatacommons.org/licenses/odbl/1-0/).)
 
 ## Data Characteristics
 - Community-maintained
